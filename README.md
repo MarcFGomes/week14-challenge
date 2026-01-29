@@ -21,8 +21,8 @@ This project demonstrates a complete MVC architecture using Node.js, Express, Se
 
 ## 🧰 Tech Stack
 
-Layer	Technologies:
-- Frontend	Handlebars, HTML, CSS, JavaScript
+Frontend:
+- Handlebars, HTML, CSS, JavaScript
 
 Backend:
 - Node.js, Express
@@ -48,15 +48,17 @@ Dev Tools:
 ├── views/           # Handlebars templates
 ├── .env
 ├── server.js
+├── README.md
 └── package.json
 ```
 
 ## ⚙️ Installation
 
 Clone the repository:
-- git clone <your-repo-url>
+```bash
+git clone <your-repo-url>
 cd crowdfunding-platform
-
+```
 
 Install dependencies:
 ```bash
@@ -71,10 +73,11 @@ DB_HOST=localhost
 
 
 Create the database:
-
+```bash
 psql -U postgres
 CREATE DATABASE crowdfunding_db;
 \q
+```
 
 ## 🌱 Seed the Database
 ```bash

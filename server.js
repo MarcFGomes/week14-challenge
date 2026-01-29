@@ -19,6 +19,9 @@ const hbs = exphbs.create({
       return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
     },
     // TODO: add format_amount helper
+    format_amount: (amount) => {
+      return Number(amount).toFixed(2);
+    },
   },
 });
 
