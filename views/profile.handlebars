@@ -1,0 +1,31 @@
+<h1 class="h4">Profile (TODO)</h1>
+<p class="text-muted">Hook this page up to real user + project data.</p>
+
+<form class="new-project-form">
+  <div class="mb-3">
+    <label class="form-label" for="project-name">Project Name</label>
+    <input class="form-control" type="text" id="project-name" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="project-desc">Description</label>
+    <textarea class="form-control" id="project-desc" rows="4"></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="project-funding">Needed Funding</label>
+    <input
+      class="form-control"
+      type="number"
+      step="0.01"
+      id="project-funding"
+    />
+  </div>
+  <button class="btn btn-dark" type="submit">Create</button>
+</form>
+
+<hr />
+
+<div class="list-group">
+  <!-- TODO: Render user's projects here -->
+</div>
+
+<script src="/js/profile.js"></script>
