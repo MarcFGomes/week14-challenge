@@ -44,6 +44,9 @@ router.get("/project/:id", async (req, res) => {
 
 router.get("/login", (req, res) => {
   // TODO: If logged in, redirect to /profile
+   if (req.session.logged_in) {
+    return res.redirect("/profile");
+  }
   res.render("login");
 });
 
