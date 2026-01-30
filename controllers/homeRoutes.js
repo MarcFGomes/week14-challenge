@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
       projects,
       logged_in: req.session.logged_in,
       user_name: req.session.user_name,
+      is_profile: false,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -62,6 +63,7 @@ router.get("/profile", withAuth, async (req, res) => {
       name: user.name,
       projects: user.projects,
       logged_in: true,
+      is_profile: true
     });
   } catch (err) {
     res.status(500).json(err);

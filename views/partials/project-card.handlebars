@@ -7,10 +7,21 @@
       {{format_date date_created}}</p>
     <p class="mb-3 flex-grow-1">{{description}}</p>
     <div class="d-flex justify-content-between align-items-center">
-      <span class="badge text-bg-warning">Needed: ${{format_amount
-          needed_funding
-        }}</span>
-      <a class="btn btn-sm btn-outline-dark" href="/project/{{id}}">Details</a>
+      <span class="badge text-bg-warning">
+        Needed: ${{format_amount needed_funding}}
+      </span>
+
+      <div class="d-flex gap-2">
+        <a class="btn btn-sm btn-outline-dark" href="/project/{{id}}">
+          Details
+        </a>
+
+        {{#if is_profile}}
+          <button class="btn btn-sm btn-danger delete-project" data-id="{{id}}">
+            Delete
+          </button>
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>

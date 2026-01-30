@@ -27,7 +27,7 @@
 <div class="list-group">
   <!-- TODO: Render user's projects here -->
   {{#each projects as |project|}}
-    {{> project-card}}
+    {{> project-card is_profile=../is_profile}}
   {{/each}}
 </div>
 
