@@ -35,3 +35,29 @@ async function newFormHandler(event) {
 document
   .querySelector(".new-project-form")
   .addEventListener("submit", newFormHandler);
+
+
+  // Delete project
+async function delButtonHandler(event) {
+  const btn = event.target.closest(".delete-project");
+  if (!btn) return;
+
+  const id = btn.dataset.id;
+
+  const response = await fetch(`/api/projects/${id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    document.location.reload(); // refresh profile list
+  } else {
+    const data = await response.json().catch(() => ({}));
+    console.log("Delete error:", data);
+    alert(data.message || "Failed to delete project");
+  }
+}
+
+// Listen for delete clicks (event delegation)
+document
+  .querySelector(".list-group")
+  ?.addEventListener("click", delButtonHandler);
