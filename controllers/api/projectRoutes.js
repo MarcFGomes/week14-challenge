@@ -12,6 +12,8 @@ router.post("/", withAuth, async (req, res) => {
     if (!name || !description || needed_funding == null) {
       return res.status(400).json({ message: "Missing required fields." });
     }
+    
+    console.log("logged_in:", req.session.logged_in);
 
     const newProject = await Project.create({
       name: name.trim(),

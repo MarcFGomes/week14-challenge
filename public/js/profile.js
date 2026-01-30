@@ -3,7 +3,7 @@ async function newFormHandler(event) {
   event.preventDefault();
 
   const name = document.querySelector("#project-name").value;
-  const description = document.querySelector("#project-description").value;
+  const description = document.querySelector("#project-desc").value;
   const needed_funding = document.querySelector("#project-funding").value;
 
   if (!name || !description || !needed_funding) {
@@ -26,7 +26,9 @@ async function newFormHandler(event) {
   if (response.ok) {
     document.location.replace("/");
   } else {
-    alert("Failed to add project");
+    const data = await response.json().catch(() => ({}));
+    console.log("Server error:", data);
+    alert(data.message || JSON.stringify(data));
   }
 }
 

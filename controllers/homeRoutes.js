@@ -47,12 +47,22 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get(
-  "/profile",
-  /* TODO: protect with withAuth */ async (req, res) => {
-    // TODO: Query the logged-in user and include their projects, then render profile
-    res.render("profile", { name: "TODO", projects: [], logged_in: true });
-  },
-);
+router.get("/profile", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [Project],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("profile", {
+      name: user.name,
+      projects: user.projects,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
