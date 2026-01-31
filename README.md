@@ -6,7 +6,7 @@ The app allows users to create accounts, post projects, and pledge support to cr
 This project demonstrates a complete MVC architecture using Node.js, Express, Sequelize, PostgreSQL, and Handlebars.
 
 **Demo**
-![Watch Video](./Assets/Demo.gif)
+![Watch Video](./public/Demo.gif)
 
 ## 📌 Features
 
